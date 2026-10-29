@@ -1,0 +1,133 @@
+/*
+  Design tokens for Trending Archive.
+  Every colour, size, radius, shadow and timing used by the UI comes from here,
+  so changing the brand later means editing this one file.
+*/
+
+/* ---------- Light theme (default) ---------- */
+:root {
+  /* Brand colours taken from the logo */
+  --color-primary: #0a5bd6; /* buttons and links, 6.0:1 on white */
+  --color-primary-hover: #1050b0; /* hover and pressed, the ARCHIVE blue */
+  --color-on-primary: #ffffff; /* text placed on the primary colour */
+  --color-azure: #0088ff; /* graphics and icons only, never text */
+  --color-sky: #00a0f8; /* gradients and focus rings only */
+  --gradient-brand: linear-gradient(135deg, #00a0f8 0%, #0088ff 50%, #0058c8 100%);
+
+  /* Surfaces */
+  --color-bg: #f6f8fb; /* page background */
+  --color-surface: #ffffff; /* cards, header, inputs */
+  --color-surface-tint: #e6f1ff; /* tags, hover rows */
+  --color-border: #d9e0ea;
+
+  /* Text */
+  --color-text: #121212;
+  --color-text-muted: #4a5568; /* 7.3:1 on white, safe for body text */
+  --color-text-subtle: #667085; /* captions, 5.0:1 on white */
+  --color-link: #0a5bd6;
+
+  /* Status colours (icons or text always paired with a label) */
+  --color-success: #0f7b4a;
+  --color-warning: #8a5a00;
+  --color-danger: #c0262d;
+
+  /* Focus ring, visible on light and dark surfaces */
+  --focus-ring: 0 0 0 3px rgba(0, 160, 248, 0.55);
+
+  /* Shadows: three levels, tinted blue instead of grey */
+  --shadow-1: 0 1px 2px rgba(16, 80, 176, 0.08);
+  --shadow-2: 0 2px 4px rgba(16, 80, 176, 0.08), 0 12px 24px rgba(16, 80, 176, 0.12);
+  --shadow-3: 0 2px 4px rgba(16, 80, 176, 0.08), 0 12px 24px rgba(16, 80, 176, 0.12),
+    0 32px 64px rgba(16, 80, 176, 0.14);
+
+  /* Typography */
+  --font-ui: "Outfit Variable", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Source Serif 4 Variable", Georgia, "Times New Roman", serif;
+
+  --text-xs: 0.8125rem; /* 13px labels */
+  --text-sm: 0.9375rem; /* 15px */
+  --text-base: 1rem; /* 16px interface text */
+  --text-lg: 1.25rem; /* 20px article body */
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --text-4xl: clamp(2.5rem, 1.6rem + 3.6vw, 4.5rem);
+
+  /* Spacing scale (4px steps) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+
+  /* Corner radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-pill: 999px;
+
+  /* Layout widths */
+  --container: 72rem; /* page content */
+  --measure: 42rem; /* article text, about 65 characters per line */
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 250ms;
+  --duration-slow: 400ms;
+
+  color-scheme: light;
+}
+
+/* ---------- Dark theme ---------- */
+/* Applied when the user picked dark in the toggle... */
+:root[data-theme="dark"] {
+  --color-primary: #5cc4ff;
+  --color-primary-hover: #38b6ff;
+  --color-on-primary: #0b0e14;
+  --color-bg: #0b0e14;
+  --color-surface: #121722;
+  --color-surface-tint: #16233a;
+  --color-border: #232b3b;
+  --color-text: #f2f5fa;
+  --color-text-muted: #b4bdcc;
+  --color-text-subtle: #9aa5b8;
+  --color-link: #5cc4ff;
+  --color-success: #4cd694;
+  --color-warning: #f0b84a;
+  --color-danger: #ff7a80;
+  --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+  --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.45),
+    0 32px 64px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+/* ...or when the user has not chosen and their device prefers dark. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --color-primary: #5cc4ff;
+    --color-primary-hover: #38b6ff;
+    --color-on-primary: #0b0e14;
+    --color-bg: #0b0e14;
+    --color-surface: #121722;
+    --color-surface-tint: #16233a;
+    --color-border: #232b3b;
+    --color-text: #f2f5fa;
+    --color-text-muted: #b4bdcc;
+    --color-text-subtle: #9aa5b8;
+    --color-link: #5cc4ff;
+    --color-success: #4cd694;
+    --color-warning: #f0b84a;
+    --color-danger: #ff7a80;
+    --shadow-1: 0 1px 2px rgba(0, 0, 0, 0.5);
+    --shadow-2: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.45);
+    --shadow-3: 0 2px 4px rgba(0, 0, 0, 0.4), 0 12px 24px rgba(0, 0, 0, 0.45),
+      0 32px 64px rgba(0, 0, 0, 0.5);
+    color-scheme: dark;
+  }
+}
