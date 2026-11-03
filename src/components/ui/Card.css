@@ -1,0 +1,20 @@
+/* Card: surface colour, border and a soft blue-tinted shadow. */
+.card {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-1);
+  transition:
+    transform var(--duration-slow) var(--ease-out),
+    box-shadow var(--duration-slow) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+/* The 3D tilt only runs where there is a real mouse pointer. */
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .card--tilt:hover {
+    transform: perspective(900px) rotateX(2deg) rotateY(-5deg) translateY(-4px);
+    box-shadow: var(--shadow-3);
+    border-color: var(--color-primary);
+  }
+}

@@ -1,0 +1,22 @@
+/* Starts slightly low and see-through, then settles into place. */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-slow) var(--ease-out),
+    transform var(--duration-slow) var(--ease-out);
+}
+
+.reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* No movement for people who ask for less. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

@@ -1,0 +1,96 @@
+/* Stack of messages, bottom right on desktop and full width on phones. */
+.toast-region {
+  position: fixed;
+  right: var(--space-4);
+  bottom: var(--space-4);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: min(380px, calc(100vw - 2 * var(--space-4)));
+  pointer-events: none;
+}
+
+.toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-3);
+  animation: toast-in var(--duration-base) var(--ease-out);
+}
+
+/* Round icon badge; colour tells the kind, the icon shape does too. */
+.toast__icon {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+.toast--success .toast__icon {
+  background: var(--color-success);
+  color: var(--color-bg);
+}
+.toast--error .toast__icon {
+  background: var(--color-danger);
+  color: var(--color-bg);
+}
+.toast--info .toast__icon {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.toast__message {
+  flex: 1;
+  padding-top: 3px;
+  font-size: var(--text-sm);
+  line-height: 1.5;
+}
+
+.toast__close {
+  display: grid;
+  flex-shrink: 0;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+.toast__close:hover {
+  background: var(--color-surface-tint);
+  color: var(--color-text);
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 560px) {
+  .toast-region {
+    right: var(--space-4);
+    left: var(--space-4);
+    width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    animation: none;
+  }
+}

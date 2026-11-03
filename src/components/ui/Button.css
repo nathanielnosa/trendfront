@@ -1,0 +1,107 @@
+/* Base button: pill shape, 44px minimum touch height at the default size. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-ui);
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out),
+    box-shadow var(--duration-fast) var(--ease-out);
+}
+
+.btn:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.btn--sm {
+  min-height: 36px;
+  padding: 0 var(--space-4);
+  font-size: var(--text-sm);
+}
+.btn--md {
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  font-size: var(--text-base);
+}
+.btn--lg {
+  min-height: 52px;
+  padding: 0 var(--space-6);
+  font-size: var(--text-lg);
+}
+.btn--full {
+  width: 100%;
+}
+
+/* Primary: solid brand colour with a soft lift on hover. */
+.btn--primary {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+.btn--primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-on-primary);
+  box-shadow: var(--shadow-2);
+}
+
+/* Secondary: outlined. */
+.btn--secondary {
+  background: transparent;
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+.btn--secondary:hover:not(:disabled) {
+  background: var(--color-surface-tint);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* Ghost: text only, for quiet actions. */
+.btn--ghost {
+  background: transparent;
+  color: var(--color-text);
+}
+.btn--ghost:hover:not(:disabled) {
+  background: var(--color-surface-tint);
+  color: var(--color-primary);
+}
+
+/* Spinner shown while loading. */
+.btn__spinner {
+  width: 1em;
+  height: 1em;
+  border: 2px solid currentColor;
+  border-right-color: transparent;
+  border-radius: 50%;
+  animation: btn-spin 0.7s linear infinite;
+}
+
+@keyframes btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn__spinner {
+    animation-duration: 2s;
+  }
+}

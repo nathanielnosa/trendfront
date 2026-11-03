@@ -1,0 +1,253 @@
+/* =========================================
+   SITE HEADER
+========================================= */
+
+.app-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: var(--space-3) var(--space-4) 0;
+  pointer-events: none;
+}
+
+.app-header__bar {
+  pointer-events: auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--space-4);
+  max-width: var(--container);
+  min-height: 68px;
+  margin-inline: auto;
+  padding: 0 var(--space-3) 0 var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: 34px;
+  background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  backdrop-filter: blur(16px) saturate(1.5);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5);
+  box-shadow: var(--shadow-2);
+  transition: box-shadow var(--duration-base) var(--ease-out);
+}
+
+.app-header__bar.is-scrolled {
+  box-shadow: var(--shadow-3);
+}
+
+/* =========================================
+   LOGO
+========================================= */
+
+.app-header__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   NAVIGATION PANEL
+========================================= */
+
+.app-header__panel {
+  display: contents;
+}
+
+.app-header__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+}
+
+.app-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* =========================================
+   NAVIGATION LINKS
+========================================= */
+
+.app-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2) var(--space-3);
+  border: 0;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text);
+  font-size: var(--text-base);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out);
+}
+
+.app-link:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-tint);
+}
+
+.app-link--active {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   BUTTONS
+========================================= */
+
+.app-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-5);
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-size: var(--text-base);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.app-button:hover {
+  background: var(--color-primary-hover);
+  border-color: var(--color-primary-hover);
+  color: var(--color-on-primary);
+}
+
+.app-button:active {
+  transform: scale(0.97);
+}
+
+.app-button--outline {
+  background: transparent;
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.app-button--outline:hover {
+  background: var(--color-surface-tint);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+/* =========================================
+   MOBILE MENU ICON BUTTON
+========================================= */
+
+.app-header__menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    color var(--duration-fast) var(--ease-out),
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out);
+}
+
+.app-header__menu:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-tint);
+  border-color: var(--color-primary);
+}
+
+.app-header__menu:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+}
+
+.app-header__menu-icon {
+  display: block;
+  width: 23px;
+  height: 23px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   TABLET AND MOBILE
+========================================= */
+
+@media (max-width: 860px) {
+  .app-header__bar,
+  .app-header__bar.is-scrolled {
+    grid-template-columns: 1fr auto;
+    padding: var(--space-2) var(--space-3) var(--space-2) var(--space-4);
+    border-radius: 28px;
+  }
+
+  .app-header__menu {
+    display: inline-flex;
+  }
+
+  .app-header__panel {
+    display: none;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-4);
+    padding: var(--space-3) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .app-header__panel.is-open {
+    display: flex;
+  }
+
+  .app-header__nav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-1);
+  }
+
+  .app-link {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .app-header__actions {
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  .app-header__actions .app-link {
+    width: auto;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-header *,
+  .app-header *::before,
+  .app-header *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

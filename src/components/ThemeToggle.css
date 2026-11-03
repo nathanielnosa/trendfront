@@ -1,0 +1,26 @@
+/* Round icon button; 44px keeps it easy to tap on a phone. */
+.theme-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-tint);
+  border-color: var(--color-primary);
+}
+
+.theme-toggle:active {
+  transform: scale(0.94);
+}

@@ -1,0 +1,21 @@
+/* Round avatar; initials sit on a light-to-mid blue gradient. */
+.avatar {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  /* Both blues are light enough for dark text (6.6:1 or better). */
+  background: linear-gradient(135deg, #5cc4ff, #00a0f8);
+  color: #121212;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  line-height: 1;
+  user-select: none;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

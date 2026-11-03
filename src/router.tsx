@@ -7,7 +7,8 @@ import { Account } from "./pages/Account";
 import { Login } from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
 import { Placeholder } from "./pages/Placeholder";
-
+import { About, Contact, Cookies, Faqs, Privacy, Terms } from "./pages/info/InfoPages";
+import { StyleGuide } from "./pages/StyleGuide";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -24,6 +25,15 @@ export const router = createBrowserRouter([
       { path: "/author/:username", element: <Placeholder title="Author" phase={3} /> },
       { path: "/verify-email", element: <Placeholder title="Verify email" phase={4} /> },
       { path: "/reset-password", element: <Placeholder title="Choose a new password" phase={4} /> },
+
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
+      { path: "/faqs", element: <Faqs /> },
+      { path: "/terms", element: <Terms /> },
+      { path: "/privacy", element: <Privacy /> },
+      { path: "/cookies", element: <Cookies /> },
+
+      { path: "/styleguide", element: <StyleGuide /> },
 
       // Visitors only (logged-in people are sent away)
       {

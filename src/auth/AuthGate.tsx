@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import { ErrorScreen } from "../components/ErrorScreen";
+import { Logo } from "../components/Logo";
 import { useAuth } from "./useAuth";
 
 /** Holds the site back until we know whether the visitor is logged in. */
@@ -9,7 +10,8 @@ export function AuthGate({ children }: { children: ReactNode }) {
   if (status === "loading") {
     return (
       <div className="splash" role="status" aria-live="polite">
-        Loading…
+        <Logo size={2} />
+        <span className="sr-only">Loading</span>
       </div>
     );
   }

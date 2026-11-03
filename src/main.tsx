@@ -13,15 +13,22 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { queryClient } from "./lib/queryClient";
 import { router } from "./router";
 
+import { ToastProvider } from "./components/ui";
+import { ThemeProvider } from "./theme/ThemeProvider";
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <AuthGate>
-            <RouterProvider router={router} />
-          </AuthGate>
-        </AuthProvider>
+        <ThemeProvider>
+          <ToastProvider>
+
+          <AuthProvider>
+            <AuthGate>
+              <RouterProvider router={router} />
+            </AuthGate>
+          </AuthProvider>
+          </ToastProvider>
+        </ThemeProvider>
       </QueryClientProvider>
     </ErrorBoundary>
   </StrictMode>,

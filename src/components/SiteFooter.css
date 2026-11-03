@@ -1,0 +1,465 @@
+/* =========================================
+   SITE FOOTER
+========================================= */
+
+.app-footer {
+  position: relative;
+  isolation: isolate;
+  margin-top: 5rem;
+  padding: 2.75rem 0 2rem;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  transition:
+    background-color 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
+}
+
+.app-footer *,
+.app-footer *::before,
+.app-footer *::after {
+  box-sizing: border-box;
+}
+
+.app-footer__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-right: 2.5rem;
+  padding-left: 2.5rem;
+}
+
+/* =========================================
+   MAIN GRID
+========================================= */
+
+.app-footer__grid {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(280px, 1.15fr);
+  gap: 2.5rem;
+}
+
+.app-footer__col {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  gap: 1rem;
+}
+
+.app-footer__heading {
+  margin: 0 0 0.5rem;
+  color: var(--color-text);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: -0.025em;
+}
+
+.app-footer__col > a {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.app-footer__col > a:hover {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   NEWSLETTER
+========================================= */
+
+.app-footer__subscribe {
+  gap: 1rem;
+}
+
+.app-footer__text {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.app-footer__newsletter {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+/* Newsletter form wrapper */
+
+.app-footer__newsletter .newsletter {
+  width: 100%;
+  margin: 0;
+}
+
+/* Pill-shaped input field */
+
+.app-footer__newsletter .newsletter__field {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: var(--color-bg);
+  box-shadow: var(--shadow-1);
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.app-footer__newsletter .newsletter__field:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+/* Email input */
+
+.app-footer__newsletter .newsletter__input {
+  flex: 1 1 auto;
+  width: 0;
+  min-width: 0;
+  height: 46px;
+  padding: 0 1rem;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--color-text);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 400;
+  box-shadow: none;
+}
+
+.app-footer__newsletter .newsletter__input:focus,
+.app-footer__newsletter .newsletter__input:focus-visible {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.app-footer__newsletter .newsletter__input::placeholder {
+  color: var(--color-text-subtle);
+  opacity: 1;
+}
+
+/* Subscribe button */
+
+.app-footer__newsletter .newsletter__button {
+  flex: 0 0 auto;
+  min-height: 46px;
+  padding: 0 1.25rem;
+  border: none;
+  border-radius: 0 999px 999px 0;
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+  font-family: inherit;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.app-footer__newsletter .newsletter__button:hover {
+  background: var(--color-primary-hover);
+}
+
+.app-footer__newsletter .newsletter__button:active {
+  transform: scale(0.98);
+}
+
+/* Newsletter status and validation messages */
+
+.app-footer__newsletter .newsletter__message {
+  min-height: 0;
+  margin: 0.5rem 0 0;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.app-footer__newsletter .newsletter__message--error {
+  color: var(--color-danger);
+}
+
+/* Privacy note */
+
+.app-footer__privacy-note {
+  margin: 0;
+  color: var(--color-text-subtle);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.app-footer__privacy-note a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.app-footer__privacy-note a:hover {
+  color: var(--color-primary);
+}
+
+/* =========================================
+   BOTTOM SECTION
+========================================= */
+
+.app-footer__bottom {
+  margin-top: 3.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.app-footer__bottom-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.app-footer__brand {
+  display: inline-flex;
+  align-items: center;
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* Logo image sizing */
+
+.app-footer__brand img,
+.app-footer__brand svg {
+  display: block;
+  max-width: 150px;
+  max-height: 34px;
+  object-fit: contain;
+}
+
+/* =========================================
+   SOCIAL ICONS
+========================================= */
+
+.app-footer__socials {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-footer__socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--color-text-muted);
+  transition:
+    color 180ms ease,
+    background-color 180ms ease;
+}
+
+.app-footer__socials a:hover {
+  color: var(--color-primary);
+  background: var(--color-surface-tint);
+}
+
+/* =========================================
+   LEGAL LINKS AND COPYRIGHT
+========================================= */
+
+.app-footer__bottom-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem 2rem;
+  margin-top: 1rem;
+}
+
+.app-footer__legal-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.app-footer__legal-links a {
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-decoration: none;
+  transition: color 180ms ease;
+}
+
+.app-footer__legal-links a:hover {
+  color: var(--color-primary);
+}
+
+.app-footer__copyright {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: right;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 960px) {
+  .app-footer {
+    padding-top: 2.5rem;
+  }
+
+  .app-footer__inner {
+    padding-right: 1.75rem;
+    padding-left: 1.75rem;
+  }
+
+  .app-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 2rem;
+    row-gap: 2.75rem;
+  }
+
+  .app-footer__subscribe {
+    grid-column: auto;
+  }
+
+  .app-footer__bottom {
+    margin-top: 2.75rem;
+  }
+
+  .app-footer__bottom-meta {
+    align-items: flex-start;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 560px) {
+  .app-footer {
+    margin-top: 3.5rem;
+    padding: 2rem 0 1.5rem;
+  }
+
+  .app-footer__inner {
+    padding-right: 1.25rem;
+    padding-left: 1.25rem;
+  }
+
+  .app-footer__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem 1rem;
+  }
+
+  .app-footer__col {
+    gap: 0.875rem;
+  }
+
+  .app-footer__heading {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+  }
+
+  .app-footer__col > a,
+  .app-footer__text {
+    font-size: 0.875rem;
+  }
+
+  .app-footer__subscribe {
+    grid-column: 1 / -1;
+  }
+
+  .app-footer__newsletter .newsletter__input {
+    height: 44px;
+    padding: 0 0.875rem;
+    font-size: 0.8125rem;
+  }
+
+  .app-footer__newsletter .newsletter__button {
+    min-height: 44px;
+    padding: 0 1rem;
+    font-size: 0.8125rem;
+  }
+
+  .app-footer__privacy-note {
+    font-size: 0.75rem;
+  }
+
+  .app-footer__bottom {
+    margin-top: 2.25rem;
+    padding-top: 1.5rem;
+  }
+
+  .app-footer__bottom-top {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .app-footer__bottom-meta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.875rem;
+    margin-top: 1.25rem;
+  }
+
+  .app-footer__legal-links {
+    gap: 0.75rem 1rem;
+  }
+
+  .app-footer__legal-links a,
+  .app-footer__copyright {
+    font-size: 0.75rem;
+    text-align: left;
+  }
+
+  .app-footer__socials {
+    gap: 0.5rem;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .app-footer *,
+  .app-footer *::before,
+  .app-footer *::after {
+    scroll-behavior: auto;
+    transition-duration: 0.01ms;
+  }
+}
