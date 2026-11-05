@@ -1,0 +1,62 @@
+/* Page bar: Previous, numbers, Next. Wraps on narrow screens. */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  margin-top: var(--space-7);
+}
+
+.pagination__pages {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pagination__page,
+.pagination__step {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color var(--duration-fast) var(--ease-out),
+    border-color var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.pagination__step {
+  padding: 0 var(--space-4);
+  border-color: var(--color-border);
+}
+
+.pagination__page:hover,
+.pagination__step:hover:not(:disabled) {
+  background: var(--color-surface-tint);
+  color: var(--color-primary);
+}
+
+/* The current page is filled with the brand colour. */
+.pagination__page[aria-current="page"] {
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.pagination__step:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.pagination__gap {
+  min-width: 2rem;
+  color: var(--color-text-subtle);
+  text-align: center;
+}

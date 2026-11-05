@@ -43,9 +43,9 @@ export function StyleGuide() {
           <Tag>Music</Tag>
           <Tag tone="neutral">Neutral</Tag>
           <Tag to="/posts">Link tag</Tag>
-          <Avatar name="Ada Obi" size={32} />
-          <Avatar name="Ada Obi" size={48} />
-          <Avatar name="Tunde" size={64} />
+          <Avatar name="Nathaniel Nosa" size={32} />
+          <Avatar name="Nathaniel Nosa" size={48} />
+          <Avatar name="Nosa" size={64} />
           <Avatar name="Broken image" src="/does-not-exist.png" size={48} />
         </div>
       </section>

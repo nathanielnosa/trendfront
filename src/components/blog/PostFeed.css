@@ -1,0 +1,22 @@
+/* Card grid shared by the feed, category and tag pages. */
+.feed__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-5);
+  transition: opacity var(--duration-base) var(--ease-out);
+}
+
+.feed__grid > .reveal {
+  height: 100%;
+}
+
+/* Slightly faded while the next page is loading. */
+.feed__grid.is-fetching {
+  opacity: 0.55;
+}
+
+.feed__count {
+  margin-bottom: var(--space-4);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}

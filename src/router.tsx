@@ -9,6 +9,11 @@ import { NotFound } from "./pages/NotFound";
 import { Placeholder } from "./pages/Placeholder";
 import { About, Contact, Cookies, Faqs, Privacy, Terms } from "./pages/info/InfoPages";
 import { StyleGuide } from "./pages/StyleGuide";
+import { Home } from "./pages/Home";
+import { Posts } from "./pages/Posts";
+import { PostPage } from "./pages/PostPage";
+import { AuthorPage } from "./pages/AuthorPage";
+import { CategoryPage, TagPage } from "./pages/Taxonomy";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -17,12 +22,14 @@ export const router = createBrowserRouter([
     errorElement: <RouteError />,
     children: [
       // Everyone
-      { path: "/", element: <Placeholder title="Home" phase={3} /> },
-      { path: "/posts", element: <Placeholder title="Posts" phase={3} /> },
-      { path: "/posts/:slug", element: <Placeholder title="Post" phase={3} /> },
-      { path: "/category/:slug", element: <Placeholder title="Category" phase={3} /> },
-      { path: "/tag/:slug", element: <Placeholder title="Tag" phase={3} /> },
-      { path: "/author/:username", element: <Placeholder title="Author" phase={3} /> },
+      { path: "/", element: <Home /> },
+
+      { path: "/posts", element: <Posts /> },
+      { path: "/posts/:slug", element: <PostPage /> },
+      { path: "/category/:slug", element: <CategoryPage /> },
+      { path: "/tag/:slug", element: <TagPage /> },
+
+      { path: "/author/:username", element: <AuthorPage /> },
       { path: "/verify-email", element: <Placeholder title="Verify email" phase={4} /> },
       { path: "/reset-password", element: <Placeholder title="Choose a new password" phase={4} /> },
 

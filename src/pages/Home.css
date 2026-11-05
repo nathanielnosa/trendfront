@@ -1,0 +1,25 @@
+/* Vertical rhythm between the home page sections. */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+/* Category chips in a wrapping row. */
+.home__chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* Three cards across, then two, then one. Reveal wrappers fill the cells. */
+.home__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: var(--space-5);
+}
+
+.home__grid > .reveal {
+  height: 100%;
+}

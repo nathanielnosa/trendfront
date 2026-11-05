@@ -1,0 +1,65 @@
+/* Post page: a narrow reading column, with the picture allowed to be wider. */
+.post-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.post-page__column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.post-page__header {
+  align-items: flex-start;
+  margin-bottom: var(--space-6);
+}
+
+.post-page__title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.15;
+}
+
+.post-page__excerpt {
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-lg);
+}
+
+.post-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}
+
+.post-page__author {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.post-page__image {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto var(--space-6);
+}
+
+.post-page__image img {
+  width: 100%;
+  max-height: 32rem;
+  object-fit: cover;
+  border-radius: var(--radius-lg, 16px);
+}
+
+.post-page__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  padding: 0;
+  list-style: none;
+}

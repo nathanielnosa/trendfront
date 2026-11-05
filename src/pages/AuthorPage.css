@@ -1,0 +1,21 @@
+/* Author header: big avatar beside the name, bio and facts. Stacks on phones. */
+.author-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-5);
+  flex-wrap: wrap;
+}
+
+.author-header__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+  min-width: 0;
+  flex: 1 1 18rem;
+}
+
+.author-header__facts {
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+}

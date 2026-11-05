@@ -4,6 +4,7 @@ export { Avatar } from "./Avatar";
 export { Button, ButtonLink } from "./Button";
 export { buttonClass } from "./buttonClass";
 export { Card } from "./Card";
+export { Pagination } from "./Pagination";
 export { Reveal } from "./Reveal";
 export { Skeleton, SkeletonText } from "./Skeleton";
 export { Tag } from "./Tag";
