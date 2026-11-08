@@ -10,6 +10,7 @@ export interface Author {
   bio: string;
   date_joined: string;
   post_count: number;
+  followers_count: number;
 }
 
 /** Fetch one author by username (no login needed). */

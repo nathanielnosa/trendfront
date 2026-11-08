@@ -1,0 +1,50 @@
+/* The icon row drops up from the Share button. */
+.share-menu {
+  position: relative;
+}
+
+.share-menu__list {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + var(--space-2));
+  z-index: 20;
+  display: flex;
+  gap: var(--space-1);
+  margin: 0;
+  padding: var(--space-2);
+  list-style: none;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-2);
+}
+
+/* Round icon buttons, large enough to tap. */
+.share-menu__list button,
+.share-menu__list a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background var(--duration-fast) var(--ease-out),
+    color var(--duration-fast) var(--ease-out);
+}
+
+.share-menu__list button:hover,
+.share-menu__list a:hover {
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .share-menu__list button,
+  .share-menu__list a {
+    transition: none;
+  }
+}

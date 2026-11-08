@@ -12,7 +12,8 @@ import { RelatedPosts } from "../components/blog/RelatedPosts";
 import { Skeleton, SkeletonText, Tag } from "../components/ui";
 import { NotFound } from "./NotFound";
 import "./PostPage.css";
-
+import { PostActions } from "../components/blog/PostActions";
+import { CommentSection } from "../components/comments/CommentSection";
 /** Grey stand-in shown while the post loads. */
 function PostSkeleton() {
   return (
@@ -77,7 +78,7 @@ export function PostPage() {
 
         <div className="post-page__column">
           <ArticleBody content={post.content} />
-
+          <PostActions postId={post.id} likes={post.likes} title={post.title} />
           {post.tags_details.length > 0 && (
             <ul className="post-page__tags" aria-label="Tags">
               {post.tags_details.map((tag) => (
@@ -89,6 +90,7 @@ export function PostPage() {
           )}
 
           <AuthorBox name={post.author_name} username={post.author_username} />
+          <CommentSection postId={post.id} allowed={post.allow_comments} />
         </div>
       </article>
 

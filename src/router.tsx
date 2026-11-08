@@ -19,7 +19,7 @@ import { CategoryPage, TagPage } from "./pages/Taxonomy";
 import { CheckEmail } from "./pages/CheckEmail";
 import { VerifyEmail } from "./pages/VerifyEmail";
 import { ResetPassword } from "./pages/ResetPassword";
-
+import { Bookmarks } from "./pages/Bookmarks";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -64,7 +64,7 @@ export const router = createBrowserRouter([
         element: <RequireAuth />,
         children: [
           { path: "/account", element: <Account /> },
-          { path: "/bookmarks", element: <Placeholder title="Bookmarks" phase={5} /> },
+          { path: "/bookmarks", element: <Bookmarks /> },
           { path: "/notifications", element: <Placeholder title="Notifications" phase={8} /> },
         ],
       },

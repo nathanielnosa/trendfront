@@ -1,0 +1,105 @@
+/* The discussion under a post. */
+.comments {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.comments__note {
+  font-size: var(--text-xs);
+}
+
+.comment-form {
+  gap: var(--space-2);
+}
+
+.comment-form__input {
+  height: auto;
+  padding: var(--space-3) var(--space-4);
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.comment-form__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.comment-form__count {
+  font-size: var(--text-xs);
+}
+
+.comment-form__buttons {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.comment-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Replies sit under their parent with a thin line on the left. */
+.comment-list--nested {
+  margin-top: var(--space-4);
+  padding-left: var(--space-4);
+  border-left: 2px solid var(--color-border);
+}
+
+.comment {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.comment__main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.comment__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.comment__text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.comment__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.comment__actions button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.comment__actions button:hover {
+  color: var(--color-primary);
+}
+
+.comment__actions .comment__danger {
+  color: var(--color-danger);
+}

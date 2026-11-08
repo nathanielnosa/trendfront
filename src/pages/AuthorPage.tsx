@@ -3,6 +3,7 @@ import { useAuthor } from "../lib/api/author";
 import { formatDate } from "../lib/format";
 import { mediaUrl } from "../lib/media";
 import { useDocumentMeta } from "../lib/useDocumentMeta";
+import { FollowButton } from "../components/blog/FollowButton";
 import { PostFeed } from "../components/blog/PostFeed";
 import { ErrorNotice } from "../components/StateMessage";
 import { Avatar, Skeleton } from "../components/ui";
@@ -40,9 +41,11 @@ export function AuthorPage() {
               <h1>{author.name}</h1>
               {author.bio && <p className="listing__lead">{author.bio}</p>}
               <p className="author-header__facts">
-                {author.post_count} {author.post_count === 1 ? "story" : "stories"} · Joined{" "}
-                {formatDate(author.date_joined)}
+                {author.post_count} {author.post_count === 1 ? "story" : "stories"} ·{" "}
+                {author.followers_count} {author.followers_count === 1 ? "follower" : "followers"} ·
+                Joined {formatDate(author.date_joined)}
               </p>
+              <FollowButton authorId={author.id} authorName={author.name} />
             </div>
           </>
         )}

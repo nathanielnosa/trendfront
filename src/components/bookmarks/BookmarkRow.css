@@ -1,0 +1,62 @@
+/* Picture on the left, text in the middle, remove button on the right. Stacks on phones. */
+.bookmark-row {
+  display: grid;
+  align-items: center;
+  gap: var(--space-4);
+  grid-template-columns: 9rem minmax(0, 1fr) auto;
+  padding: var(--space-3);
+}
+
+.bookmark-row__picture {
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+}
+
+.bookmark-row__picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Brand gradient stand-in when a story has no picture. */
+.bookmark-row__fallback {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-primary), #00a0f8);
+  opacity: 0.85;
+}
+
+.bookmark-row__title {
+  font-size: var(--text-lg);
+  line-height: 1.3;
+}
+
+.bookmark-row__title a:hover {
+  color: var(--color-primary);
+}
+
+.bookmark-row__excerpt {
+  display: -webkit-box;
+  margin-top: var(--space-1);
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.bookmark-row__meta {
+  margin-top: var(--space-2);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 640px) {
+  .bookmark-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bookmark-row__picture {
+    aspect-ratio: 16 / 9;
+  }
+}

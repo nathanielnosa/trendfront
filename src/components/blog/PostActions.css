@@ -1,0 +1,82 @@
+/* Reaction pills on the left, save button on the right; wraps on phones. */
+.post-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-border);
+}
+
+.post-actions__reactions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.post-actions__right {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.post-actions__total {
+  margin-left: var(--space-2);
+  font-size: var(--text-sm);
+}
+
+.reaction,
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    border-color var(--duration-fast) var(--ease-out),
+    background var(--duration-fast) var(--ease-out),
+    transform var(--duration-fast) var(--ease-out);
+}
+
+.reaction {
+  min-width: 44px;
+  justify-content: center;
+  font-size: 1.15rem;
+}
+
+.reaction__count {
+  font-size: var(--text-sm);
+}
+
+.reaction:hover,
+.save-button:hover {
+  border-color: var(--color-primary);
+}
+
+.reaction:active,
+.save-button:active {
+  transform: scale(0.96);
+}
+
+/* The one I picked, or the post I saved. */
+.reaction--active,
+.save-button--active {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
+  color: var(--color-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reaction,
+  .save-button {
+    transition: none;
+  }
+}
