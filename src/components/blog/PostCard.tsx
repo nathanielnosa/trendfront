@@ -20,7 +20,7 @@ export function PostCard({ post }: { post: Post }) {
           <img src={image} alt="" loading="lazy" decoding="async" />
         ) : (
           <div className="post-card__placeholder" aria-hidden="true">
-            {category?.name ?? "TrendArchive"}
+            {category?.name ?? "Trending Archive"}
           </div>
         )}
       </div>

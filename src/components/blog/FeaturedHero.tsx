@@ -34,7 +34,7 @@ export function FeaturedHero({ post }: { post: Post }) {
           <img src={image} alt="" decoding="async" fetchPriority="high" />
         ) : (
           <div className="hero__mesh">
-            <span className="hero__chip">{category?.name ?? "TrendArchive"}</span>
+            <span className="hero__chip">{category?.name ?? "Trending Archive"}</span>
           </div>
         )}
       </Card>

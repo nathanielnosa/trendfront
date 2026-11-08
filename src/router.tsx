@@ -13,7 +13,13 @@ import { Home } from "./pages/Home";
 import { Posts } from "./pages/Posts";
 import { PostPage } from "./pages/PostPage";
 import { AuthorPage } from "./pages/AuthorPage";
+import { Register } from "./pages/Register";
+import { ForgotPassword } from "./pages/ForgotPassword";
 import { CategoryPage, TagPage } from "./pages/Taxonomy";
+import { CheckEmail } from "./pages/CheckEmail";
+import { VerifyEmail } from "./pages/VerifyEmail";
+import { ResetPassword } from "./pages/ResetPassword";
+
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -30,8 +36,8 @@ export const router = createBrowserRouter([
       { path: "/tag/:slug", element: <TagPage /> },
 
       { path: "/author/:username", element: <AuthorPage /> },
-      { path: "/verify-email", element: <Placeholder title="Verify email" phase={4} /> },
-      { path: "/reset-password", element: <Placeholder title="Choose a new password" phase={4} /> },
+      { path: "/verify-email", element: <VerifyEmail /> },
+      { path: "/reset-password", element: <ResetPassword /> },
 
       { path: "/about", element: <About /> },
       { path: "/contact", element: <Contact /> },
@@ -47,8 +53,9 @@ export const router = createBrowserRouter([
         element: <GuestOnly />,
         children: [
           { path: "/login", element: <Login /> },
-          { path: "/register", element: <Placeholder title="Create account" phase={4} /> },
-          { path: "/forgot-password", element: <Placeholder title="Forgot password" phase={4} /> },
+          { path: "/register", element: <Register /> },
+          { path: "/check-email", element: <CheckEmail /> },
+          { path: "/forgot-password", element: <ForgotPassword /> },
         ],
       },
 

@@ -1,39 +1,42 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "../auth/useAuth";
-import { Avatar, Card, Tag } from "../components/ui";
+import { Card, Tag } from "../components/ui";
+import { ProfileForm } from "../components/account/ProfileForm";
+import { PasswordForm } from "../components/account/PasswordForm";
+import "./Account.css";
 
-/** Shows who is logged in. Phase 4 turns this into the full profile page. */
+/** The logged-in person's account: details, profile editing and password change. */
 export function Account() {
   const { user } = useAuth();
   if (!user) return null;
 
-  const fullName = `${user.first_name} ${user.last_name}`.trim() || user.username;
-
   return (
-    <section style={{ maxWidth: "640px", margin: "0 auto" }}>
-      <Card className="panel">
-        <div style={{ display: "flex", alignItems: "center", gap: "1rem", marginBottom: "1.5rem" }}>
-          <Avatar name={fullName} size={64} />
-          <div>
-            <h1 style={{ fontSize: "var(--text-xl)" }}>{fullName}</h1>
-            <p className="muted">@{user.username}</p>
-          </div>
-        </div>
+    <div className="account">
+      <header className="account__header">
+        <h2>Your account</h2>
+        <p className="muted">
+          Signed in as <strong>{user.email}</strong> <Tag>{user.role}</Tag>{" "}
+          <Tag tone={user.is_verified ? "primary" : "neutral"}>
+            {user.is_verified ? "Verified" : "Not verified"}
+          </Tag>
+        </p>
+        {user.role !== "SUBSCRIBER" && (
+          <p>
+            <Link to={`/author/${user.username}`}>View your public author page</Link>
+          </p>
+        )}
+      </header>
 
-        <dl className="facts">
-          <dt>Email</dt>
-          <dd>{user.email}</dd>
-          <dt>Role</dt>
-          <dd>
-            <Tag>{user.role}</Tag>
-          </dd>
-          <dt>Email verified</dt>
-          <dd>
-            <Tag tone={user.is_verified ? "primary" : "neutral"}>
-              {user.is_verified ? "Verified" : "Not verified"}
-            </Tag>
-          </dd>
-        </dl>
+      <Card className="panel">
+        <h2>Profile</h2>
+        {/* key makes the form start fresh if a different person logs in */}
+        <ProfileForm key={user.id} />
       </Card>
-    </section>
+
+      <Card className="panel">
+        <h2>Password</h2>
+        <PasswordForm />
+      </Card>
+    </div>
   );
 }

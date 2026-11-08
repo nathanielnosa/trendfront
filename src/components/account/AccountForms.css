@@ -1,0 +1,30 @@
+/* Layout helpers for the account page forms. */
+.account-picture {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.account-picture__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.account-row {
+  display: grid;
+  gap: var(--space-4);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+}
+
+.account-hint {
+  margin: 0;
+  font-size: var(--text-xs);
+}
+
+textarea.field__input {
+  height: auto;
+  padding-block: var(--space-3);
+  resize: vertical;
+}
