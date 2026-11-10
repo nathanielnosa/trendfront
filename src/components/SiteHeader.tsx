@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { EDITOR_ROLES, WRITER_ROLES, hasRole } from "../auth/roles";
+import { EDITOR_ROLES, MODERATOR_ROLES, WRITER_ROLES, hasRole } from "../auth/roles";
 import { useAuth } from "../auth/useAuth";
 import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
@@ -115,6 +115,11 @@ export function SiteHeader() {
             {hasRole(user, EDITOR_ROLES) && (
               <NavLink to="/desk/review" className={linkClass} onClick={close}>
                 Desk
+              </NavLink>
+            )}
+            {hasRole(user, MODERATOR_ROLES) && (
+              <NavLink to="/desk/comments" className={linkClass} onClick={close}>
+                Comments
               </NavLink>
             )}
           </nav>

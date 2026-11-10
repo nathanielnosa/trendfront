@@ -1,0 +1,53 @@
+/* The editor's reading page: decision panel first, then the story as readers will see it. */
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  width: 100%;
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.review__head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.review__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.review__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.review__textarea {
+  height: auto;
+  padding: var(--space-3) var(--space-4);
+  resize: vertical;
+}
+
+.review__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.review__when {
+  width: auto;
+}
+
+.review__image {
+  width: 100%;
+  max-height: 24rem;
+  object-fit: cover;
+  border-radius: var(--radius-lg, 16px);
+}

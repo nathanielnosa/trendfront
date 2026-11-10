@@ -22,6 +22,9 @@ import { ResetPassword } from "./pages/ResetPassword";
 import { Bookmarks } from "./pages/Bookmarks";
 import { MyPosts } from "./pages/studio/MyPosts";
 import { PostEditor } from "./pages/studio/PostEditor";
+import { ReviewQueue } from "./pages/desk/ReviewQueue";
+import { ReviewPost } from "./pages/desk/ReviewPost";
+import { CommentQueue } from "./pages/desk/CommentQueue";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -85,14 +88,13 @@ export const router = createBrowserRouter([
       // Editorial desk
       {
         element: <RequireRole roles={MODERATOR_ROLES} />,
-        children: [
-          { path: "/desk/comments", element: <Placeholder title="Pending comments" phase={7} /> },
-        ],
+        children: [{ path: "/desk/comments", element: <CommentQueue /> }],
       },
       {
         element: <RequireRole roles={EDITOR_ROLES} />,
         children: [
-          { path: "/desk/review", element: <Placeholder title="Review queue" phase={7} /> },
+          { path: "/desk/review", element: <ReviewQueue /> },
+          { path: "/desk/review/:id", element: <ReviewPost /> },
           { path: "/desk/analytics", element: <Placeholder title="Analytics" phase={8} /> },
         ],
       },

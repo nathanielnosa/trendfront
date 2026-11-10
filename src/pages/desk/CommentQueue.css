@@ -1,0 +1,30 @@
+/* The moderation list: one card per waiting comment. */
+.comment-queue {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.comment-queue__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.comment-queue__meta {
+  margin: 0;
+}
+
+.comment-queue__text {
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.comment-queue__buttons {
+  display: flex;
+  gap: var(--space-2);
+}
