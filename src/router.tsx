@@ -20,6 +20,8 @@ import { CheckEmail } from "./pages/CheckEmail";
 import { VerifyEmail } from "./pages/VerifyEmail";
 import { ResetPassword } from "./pages/ResetPassword";
 import { Bookmarks } from "./pages/Bookmarks";
+import { MyPosts } from "./pages/studio/MyPosts";
+import { PostEditor } from "./pages/studio/PostEditor";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -73,9 +75,9 @@ export const router = createBrowserRouter([
       {
         element: <RequireRole roles={WRITER_ROLES} />,
         children: [
-          { path: "/studio", element: <Placeholder title="My posts" phase={6} /> },
-          { path: "/studio/new", element: <Placeholder title="New post" phase={6} /> },
-          { path: "/studio/:id/edit", element: <Placeholder title="Edit post" phase={6} /> },
+          { path: "/studio", element: <MyPosts /> },
+          { path: "/studio/new", element: <PostEditor /> },
+          { path: "/studio/:id/edit", element: <PostEditor /> },
           { path: "/studio/media", element: <Placeholder title="Media library" phase={6} /> },
         ],
       },

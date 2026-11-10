@@ -1,0 +1,28 @@
+/* Each status has its own tint; text is always readable in both themes. */
+.status-badge {
+  display: inline-block;
+  padding: 2px var(--space-3);
+  border-radius: var(--radius-pill);
+  background: color-mix(in srgb, var(--color-text-muted) 16%, transparent);
+  color: var(--color-text);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.status-badge--published {
+  background: color-mix(in srgb, var(--color-success, #16a34a) 20%, transparent);
+}
+
+.status-badge--under_review {
+  background: color-mix(in srgb, #f59e0b 24%, transparent);
+}
+
+.status-badge--approved {
+  background: color-mix(in srgb, var(--color-primary) 18%, transparent);
+}
+
+.status-badge--archived {
+  opacity: 0.7;
+}

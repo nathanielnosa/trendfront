@@ -1,0 +1,70 @@
+/* The editor frame: a sticky toolbar above the writing area. */
+.rte {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 16px);
+  background: var(--color-surface);
+}
+
+.rte:focus-within {
+  border-color: var(--color-primary);
+  box-shadow: var(--focus-ring);
+}
+
+.rte__toolbar {
+  position: sticky;
+  top: 5.5rem; /* below the floating site header */
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius-lg, 16px) var(--radius-lg, 16px) 0 0;
+  background: var(--color-surface);
+}
+
+.rte__spacer {
+  flex: 1;
+}
+
+.rte__button {
+  min-width: 36px;
+  height: 36px;
+  padding: 0 var(--space-2);
+  border: 0;
+  border-radius: var(--radius-md);
+  background: none;
+  color: var(--color-text);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.rte__button:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+}
+
+.rte__button--active {
+  background: color-mix(in srgb, var(--color-primary) 20%, transparent);
+  color: var(--color-primary);
+}
+
+.rte__button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* The writing area itself uses the article styles; it only needs room and a minimum height. */
+.rte__content {
+  min-height: 22rem;
+  padding: var(--space-5);
+  outline: none;
+}
+
+.rte__content p.is-editor-empty:first-child::before {
+  float: left;
+  height: 0;
+  color: var(--color-text-subtle);
+  content: attr(data-placeholder);
+  pointer-events: none;
+}

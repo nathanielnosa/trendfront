@@ -1,0 +1,31 @@
+/* Preview on top, buttons underneath. */
+.image-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-2);
+}
+
+.image-field__preview,
+.image-field__empty {
+  width: 100%;
+  max-width: 28rem;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg, 16px);
+}
+
+.image-field__preview {
+  object-fit: cover;
+}
+
+.image-field__empty {
+  display: grid;
+  place-items: center;
+  border: 1px dashed var(--color-border);
+  font-size: var(--text-sm);
+}
+
+.image-field__buttons {
+  display: flex;
+  gap: var(--space-2);
+}
