@@ -1,0 +1,30 @@
+/* The header bell and its small unread badge. */
+.bell {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  color: var(--color-text);
+}
+
+.bell:hover {
+  background: var(--color-surface-tint, rgba(127, 127, 127, 0.12));
+}
+
+.bell__count {
+  position: absolute;
+  top: 0.1rem;
+  right: 0.05rem;
+  min-width: 1.1rem;
+  padding-inline: 0.25rem;
+  border-radius: 999px;
+  background: var(--color-primary);
+  color: var(--color-on-primary, #5cc4ff);
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.1rem;
+  text-align: center;
+}

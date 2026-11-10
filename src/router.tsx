@@ -25,6 +25,8 @@ import { PostEditor } from "./pages/studio/PostEditor";
 import { ReviewQueue } from "./pages/desk/ReviewQueue";
 import { ReviewPost } from "./pages/desk/ReviewPost";
 import { CommentQueue } from "./pages/desk/CommentQueue";
+import { Notifications } from "./pages/Notifications";
+import { Analytics } from "./pages/desk/Analytics";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -70,7 +72,7 @@ export const router = createBrowserRouter([
         children: [
           { path: "/account", element: <Account /> },
           { path: "/bookmarks", element: <Bookmarks /> },
-          { path: "/notifications", element: <Placeholder title="Notifications" phase={8} /> },
+          { path: "/notifications", element: <Notifications /> },
         ],
       },
 
@@ -95,7 +97,7 @@ export const router = createBrowserRouter([
         children: [
           { path: "/desk/review", element: <ReviewQueue /> },
           { path: "/desk/review/:id", element: <ReviewPost /> },
-          { path: "/desk/analytics", element: <Placeholder title="Analytics" phase={8} /> },
+          { path: "/desk/analytics", element: <Analytics /> },
         ],
       },
 

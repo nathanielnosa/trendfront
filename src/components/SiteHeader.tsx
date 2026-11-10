@@ -6,6 +6,7 @@ import { Logo } from "./Logo";
 import { ThemeToggle } from "./ThemeToggle";
 import "./SiteHeader.css";
 import { HeaderSearch } from "./HeaderSearch";
+import { NotificationBell } from "./NotificationBell";
 /**
  * Inline SVG icon for the mobile menu.
  * Displays a hamburger when closed and an X when open.
@@ -158,6 +159,7 @@ export function SiteHeader() {
 
             {/* toggle */}
             <ThemeToggle />
+            <NotificationBell onNavigate={close} />
           </div>
         </div>
       </div>

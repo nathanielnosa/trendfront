@@ -1,0 +1,62 @@
+/* Analytics layout: tiles, the traffic panel and the two top-ten lists. */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  gap: var(--space-3);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.stat__value {
+  font-family: var(--font-ui, inherit);
+  font-size: 1.75rem;
+  line-height: 1.1;
+}
+
+.panel-chart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.panel-chart h2 {
+  margin: 0;
+}
+
+.panel-chart__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.panel-chart__filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--space-2);
+}
+
+.tops {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  gap: var(--space-4);
+}
+
+.analytics-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.analytics-table th,
+.analytics-table td {
+  padding: 0.4rem 0.25rem;
+  border-bottom: 1px solid var(--color-border);
+  text-align: start;
+}

@@ -1,0 +1,103 @@
+/* Charts use one hue (the brand blue), thin marks and quiet grid lines. */
+.chart {
+  position: relative;
+}
+
+.chart__svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  touch-action: pan-y;
+}
+
+.chart__grid {
+  stroke: var(--color-border);
+  stroke-width: 1;
+}
+
+.chart__axis {
+  fill: var(--color-text-muted, currentColor);
+  font-size: 11px;
+}
+
+.chart__line {
+  fill: none;
+  stroke: var(--color-primary);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.chart__area {
+  fill: var(--color-primary);
+  opacity: 0.12;
+}
+
+.chart__guide {
+  stroke: var(--color-text-muted, currentColor);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.chart__dot {
+  fill: var(--color-primary);
+  stroke: var(--color-surface, #fff);
+  stroke-width: 2;
+}
+
+.chart__tip {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface, #fff);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  font-size: 0.8rem;
+  pointer-events: none;
+  transform: translate(-50%, calc(-100% - 12px));
+  white-space: nowrap;
+}
+
+.chart__tip span {
+  color: var(--color-text-muted, currentColor);
+}
+
+/* Ranked bar list */
+.barlist {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barlist__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.barlist__head a,
+.barlist__head span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.barlist__track {
+  height: 6px;
+  margin-top: 4px;
+  border-radius: 4px;
+  background: var(--color-border);
+}
+
+.barlist__bar {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--color-primary);
+}
