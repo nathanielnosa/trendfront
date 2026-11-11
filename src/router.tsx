@@ -6,7 +6,7 @@ import { RootLayout } from "./layouts/RootLayout";
 import { Account } from "./pages/Account";
 import { Login } from "./pages/Login";
 import { NotFound } from "./pages/NotFound";
-import { Placeholder } from "./pages/Placeholder";
+// import { Placeholder } from "./pages/Placeholder";
 import { About, Contact, Cookies, Faqs, Privacy, Terms } from "./pages/info/InfoPages";
 import { StyleGuide } from "./pages/StyleGuide";
 import { Home } from "./pages/Home";
@@ -27,6 +27,7 @@ import { ReviewPost } from "./pages/desk/ReviewPost";
 import { CommentQueue } from "./pages/desk/CommentQueue";
 import { Notifications } from "./pages/Notifications";
 import { Analytics } from "./pages/desk/Analytics";
+import { MediaLibrary } from "./pages/studio/MediaLibrary";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -83,7 +84,7 @@ export const router = createBrowserRouter([
           { path: "/studio", element: <MyPosts /> },
           { path: "/studio/new", element: <PostEditor /> },
           { path: "/studio/:id/edit", element: <PostEditor /> },
-          { path: "/studio/media", element: <Placeholder title="Media library" phase={6} /> },
+          { path: "/studio/media", element: <MediaLibrary /> },
         ],
       },
 

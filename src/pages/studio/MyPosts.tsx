@@ -9,7 +9,7 @@ import { formatCount, formatDate } from "../../lib/format";
 import { usePageParam } from "../../lib/usePageParam";
 import "../Listing.css";
 import "./MyPosts.css";
-
+import { StudioNav } from "../../components/studio/StudioNav";
 
 /** Posts per page. */
 const PAGE_SIZE = 10;
@@ -77,6 +77,7 @@ export function MyPosts() {
 
   return (
     <div className="listing">
+      <StudioNav />
       <header className="listing__header">
         <div className="studio-head">
           <h1>My posts</h1>
@@ -94,11 +95,17 @@ export function MyPosts() {
         </div>
       )}
 
-      {error && <ErrorNotice message="We could not load your posts." onRetry={() => void refetch()} />}
+      {error && (
+        <ErrorNotice message="We could not load your posts." onRetry={() => void refetch()} />
+      )}
 
       {data && data.results.length === 0 && (
-        <EmptyNotice title={search || status ? "No posts match" : "You have not written anything yet"}>
-          {search || status ? "Try another status or search." : "Start with a draft. You can edit it as often as you like."}
+        <EmptyNotice
+          title={search || status ? "No posts match" : "You have not written anything yet"}
+        >
+          {search || status
+            ? "Try another status or search."
+            : "Start with a draft. You can edit it as often as you like."}
           {!search && !status && (
             <div style={{ marginTop: "1rem" }}>
               <ButtonLink to="/studio/new">Write your first post</ButtonLink>
