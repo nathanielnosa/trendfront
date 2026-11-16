@@ -38,6 +38,10 @@ export const authApi = {
   login: (email: string, password: string) =>
     api.post<LoginResponse>("/auth/login/", { email, password }, { auth: false }),
 
+  // google login
+  google: (credential: string) =>
+    api.post<LoginResponse>("/auth/google/", { credential }, { auth: false }),
+
   /** Create an account. The person must then verify their email before logging in. */
   register: (input: RegisterInput) =>
     api.post<RegisterResponse>("/auth/register/", input, { auth: false }),
@@ -63,7 +67,7 @@ export const authApi = {
     api.post<{ message: string }>("/auth/change-password/", input),
 
   me: () => api.get<User>("/auth/me/"),
-    /** Save profile changes. Send FormData so a picture can be included. */
+  /** Save profile changes. Send FormData so a picture can be included. */
   updateProfile: (data: FormData) => api.patch<unknown>("/auth/me/", data),
 
   // The body is a function so a retry after a token refresh sends the NEW

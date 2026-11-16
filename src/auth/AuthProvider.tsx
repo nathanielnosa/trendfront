@@ -49,8 +49,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     [],
   );
 
-  const login = useCallback(async (email: string, password: string) => {
-    const { tokens } = await authApi.login(email, password);
+  /** Save the tokens, load the person's profile and mark them as logged in. */
+  const finishLogin = useCallback(async (tokens: Parameters<typeof setTokens>[0]) => {
     setTokens(tokens);
     try {
       const user = await authApi.me();
@@ -60,6 +60,24 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       throw error;
     }
   }, []);
+
+  /** Log in with an email and password. */
+  const login = useCallback(
+    async (email: string, password: string) => {
+      const { tokens } = await authApi.login(email, password);
+      await finishLogin(tokens);
+    },
+    [finishLogin],
+  );
+
+  /** Log in with the token from Google's sign-in button. */
+  const loginWithGoogle = useCallback(
+    async (credential: string) => {
+      const { tokens } = await authApi.google(credential);
+      await finishLogin(tokens);
+    },
+    [finishLogin],
+  );
 
   const logout = useCallback(async () => {
     try {
@@ -83,8 +101,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const value = useMemo<AuthValue>(
-    () => ({ ...state, login, logout, refreshUser, retry }),
-    [state, login, logout, refreshUser, retry],
+    () => ({ ...state, login, loginWithGoogle, logout, refreshUser, retry }),
+    [state, login, loginWithGoogle, logout, refreshUser, retry],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

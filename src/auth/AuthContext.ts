@@ -15,6 +15,8 @@ export interface AuthValue {
   /** A message to show when status is "error". */
   error: string | null;
   login: (email: string, password: string) => Promise<void>;
+  /** Sign in with the token Google's button gives back. */
+  loginWithGoogle: (credential: string) => Promise<void>;
   logout: () => Promise<void>;
   /** Fetch the profile again, for example after the person edits it. */
   refreshUser: () => Promise<void>;

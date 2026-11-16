@@ -5,6 +5,7 @@ import { RetryNotice } from "../components/RetryNotice";
 import { Button, Card, TextField } from "../components/ui";
 import { authApi } from "../lib/api/auth";
 import { toApiError, type ApiError } from "../lib/api/errors";
+import { GoogleButton } from "../components/GoogleButton";
 
 /** Sign-up page. On success it moves on to the "check your email" screen. */
 export function Register() {
@@ -63,12 +64,17 @@ export function Register() {
         <p className="muted" style={{ margin: "0.5rem 0 1.5rem" }}>
           Join to bookmark stories, like and comment.
         </p>
-
+        <GoogleButton />
         <form onSubmit={handleSubmit} className="form" noValidate>
           <FormAlert error={error} />
           {error?.isRateLimited && <RetryNotice key={attempt} seconds={error.retryAfter} />}
 
-          <TextField label="First name" autoComplete="given-name" required {...bind("first_name")} />
+          <TextField
+            label="First name"
+            autoComplete="given-name"
+            required
+            {...bind("first_name")}
+          />
           <TextField label="Last name" autoComplete="family-name" required {...bind("last_name")} />
           <TextField label="Username" autoComplete="username" required {...bind("username")} />
           <TextField label="Email" type="email" autoComplete="email" required {...bind("email")} />

@@ -5,7 +5,7 @@ import { FormAlert } from "../components/FormErrors";
 import { RetryNotice } from "../components/RetryNotice";
 import { Button, Card, TextField } from "../components/ui";
 import { toApiError, type ApiError } from "../lib/api/errors";
-
+import { GoogleButton } from "../components/GoogleButton";
 /**
  * Log in page. After a successful login, <GuestOnly> sends the person back to
  * the page they came from. Phase 4 adds the rest of the account pages.
@@ -41,7 +41,7 @@ export function Login() {
         <p className="muted" style={{ margin: "0.5rem 0 1.5rem" }}>
           Log in to bookmark posts and join the conversation.
         </p>
-
+        <GoogleButton />
         <form onSubmit={handleSubmit} className="form" noValidate>
           <FormAlert error={error} />
           {error?.isRateLimited && <RetryNotice key={attempt} seconds={error.retryAfter} />}

@@ -5,6 +5,7 @@ import { ErrorNotice } from "../../components/StateMessage";
 import { ImageField } from "../../components/studio/ImageField";
 import { RichTextEditor } from "../../components/studio/RichTextEditor";
 import { StatusBadge } from "../../components/studio/StatusBadge";
+import { TagAdder } from "../../components/studio/TagAdder";
 import { WorkflowPanel } from "../../components/studio/WorkflowPanel";
 import { Button, Skeleton, TextField, useToast } from "../../components/ui";
 import type { Post } from "../../lib/api/blog";
@@ -336,7 +337,7 @@ function EditorForm({
       <fieldset className="editor__tags">
         <legend className="field__label">Tags</legend>
         {tags.data && tags.data.length === 0 && (
-          <p className="muted">No tags exist yet. An editor can create them.</p>
+          <p className="muted">No tags yet. Add the first one below.</p>
         )}
         <div className="editor__chips">
           {(tags.data ?? []).map((tag) => {
@@ -359,6 +360,11 @@ function EditorForm({
             );
           })}
         </div>
+        <TagAdder
+          onAdded={(tag) =>
+            set("tags", form.tags.includes(tag.id) ? form.tags : [...form.tags, tag.id])
+          }
+        />
       </fieldset>
 
       <label className="editor__check">

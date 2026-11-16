@@ -1,0 +1,29 @@
+/* The Google button with a quiet "or" divider underneath it. */
+.google {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.google__button {
+  min-height: 44px;
+}
+
+.google__divider {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.google__divider::before,
+.google__divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}

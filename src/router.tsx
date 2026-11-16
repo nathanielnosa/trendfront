@@ -28,6 +28,8 @@ import { CommentQueue } from "./pages/desk/CommentQueue";
 import { Notifications } from "./pages/Notifications";
 import { Analytics } from "./pages/desk/Analytics";
 import { MediaLibrary } from "./pages/studio/MediaLibrary";
+import { DashboardLayout } from "./layouts/DashboardLayout";
+import { DashboardHome } from "./pages/dashboard/DashboardHome";
 // Every screen in the plan, who may open it, and the phase that builds it.
 // Placeholders are replaced one by one as the phases land.
 export const router = createBrowserRouter([
@@ -67,42 +69,51 @@ export const router = createBrowserRouter([
         ],
       },
 
-      // Logged in
+      { path: "*", element: <NotFound /> },
+    ],
+  },
+
+  // The dashboard: everything for logged-in people, inside the menu layout
+  {
+    element: <RequireAuth />,
+    errorElement: <RouteError />,
+    children: [
       {
-        element: <RequireAuth />,
+        element: <DashboardLayout />,
         children: [
+          { path: "/dashboard", element: <DashboardHome /> },
           { path: "/account", element: <Account /> },
           { path: "/bookmarks", element: <Bookmarks /> },
           { path: "/notifications", element: <Notifications /> },
+
+          // Writer studio
+          {
+            element: <RequireRole roles={WRITER_ROLES} />,
+            children: [
+              { path: "/studio", element: <MyPosts /> },
+              { path: "/studio/new", element: <PostEditor /> },
+              { path: "/studio/:id/edit", element: <PostEditor /> },
+              { path: "/studio/media", element: <MediaLibrary /> },
+            ],
+          },
+
+          // Moderation: editors, admins and authors (on their own posts)
+          {
+            element: <RequireRole roles={MODERATOR_ROLES} />,
+            children: [{ path: "/desk/comments", element: <CommentQueue /> }],
+          },
+
+          // Editorial desk
+          {
+            element: <RequireRole roles={EDITOR_ROLES} />,
+            children: [
+              { path: "/desk/review", element: <ReviewQueue /> },
+              { path: "/desk/review/:id", element: <ReviewPost /> },
+              { path: "/desk/analytics", element: <Analytics /> },
+            ],
+          },
         ],
       },
-
-      // Writer studio
-      {
-        element: <RequireRole roles={WRITER_ROLES} />,
-        children: [
-          { path: "/studio", element: <MyPosts /> },
-          { path: "/studio/new", element: <PostEditor /> },
-          { path: "/studio/:id/edit", element: <PostEditor /> },
-          { path: "/studio/media", element: <MediaLibrary /> },
-        ],
-      },
-
-      // Editorial desk
-      {
-        element: <RequireRole roles={MODERATOR_ROLES} />,
-        children: [{ path: "/desk/comments", element: <CommentQueue /> }],
-      },
-      {
-        element: <RequireRole roles={EDITOR_ROLES} />,
-        children: [
-          { path: "/desk/review", element: <ReviewQueue /> },
-          { path: "/desk/review/:id", element: <ReviewPost /> },
-          { path: "/desk/analytics", element: <Analytics /> },
-        ],
-      },
-
-      { path: "*", element: <NotFound /> },
     ],
   },
 ]);

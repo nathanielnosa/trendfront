@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /studio
+Disallow: /desk
+Disallow: /account
+Disallow: /notifications
+
+Sitemap: https://trendarchive.com/sitemap.xml
